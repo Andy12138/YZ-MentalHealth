@@ -12,15 +12,15 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../../css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="css/font_eolqem241z66flxr.css" media="all" />
 	<link rel="stylesheet" href="css/main.css" media="all" />
 </head>
 <style type="text/css">
-.jdtbg{
+/*.jdtbg{
     position: relative;
     width: 100%;
     height: 20px;
-    background: url(./img/jdtbg.png);
+    background: url(../pages/img/jdtbg.png);
 	background-size: 100% 100%;
     border-radius: 20px;
     margin: 20px auto;
@@ -30,27 +30,15 @@
 	position: absolute;
     width: 25%;
     height: 20px;
-    background: url(./img/jdtjdt.png);
+    background: url(img/jdtjdt.png);
     background-size: auto 100%;
     overflow: hidden;
     border-radius: 20px;
 	transition: 1s;
-}
+}*/
 </style>
 <script type="text/javascript">
-window.onload = function(){
-
-}
 </script>
-<body>
-	<div id="warningOpts" style="width:500px;height:500px">
-		<div style="width:100%;height:100px;text-align:center">
-			<div class="jdtbg">
-				<div class="jdtwrap"></div>
-			</div>
-			<p>Loading......</p>
-		</div>
-	</div>
 <body class="main_body">
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部 -->
@@ -85,7 +73,7 @@ window.onload = function(){
 			        <i class="layui-icon">&#xe615;</i>
 			    </div>
 			    <!-- 天气信息 -->
-			    <div class="weather" pc>
+			    <!--<div class="weather" pc>
 			    	<div id="tp-weather-widget"></div>
 					<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
 					<script>tpwidget("init", {
@@ -103,7 +91,7 @@ window.onload = function(){
 					    "hash": "14dff75e7253d3a8b9727522759f3455"
 					});
 					tpwidget("show");</script>
-			    </div>
+			    </div>-->
 			    <!-- 顶部右侧菜单 -->
 			    <ul class="layui-nav top_menu">
 			    	<li class="layui-nav-item showNotice" id="showNotice" pc>
@@ -158,7 +146,6 @@ window.onload = function(){
 			<p>copyright @2017 请叫我马哥 更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>　　<a onclick="donation()" class="layui-btn layui-btn-danger l·ayui-btn-small">捐赠作者</a></p>
 		</div>
 	</div>
-
 	<!-- 锁屏 -->
 	<div class="admin-header-lock" id="lock-box" style="display: none;">
 		<div class="admin-header-lock-img"><img src="images/face.jpg"/></div>
@@ -173,7 +160,7 @@ window.onload = function(){
 	<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 	<div class="site-mobile-shade"></div>
 
-	<script type="text/javascript" src="layui/layui.js"></script>
+	<script type="text/javascript" src="../pages/layui/layui.js"></script>
 	<script type="text/javascript" src="js/nav.js"></script>
 	<script type="text/javascript" src="js/leftNav.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
