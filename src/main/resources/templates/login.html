@@ -16,6 +16,7 @@
 		<form class="form-signin" action="dashboard.html" th:action="@{/user/isLogin}" method="post">
 			<img class="mb-4" src="asserts/img/ymx.png" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+			<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
 			<label class="sr-only">Username</label>
 			<input type="text" name="username" class="form-control" th:placeholder="#{login.userName}" required="" autofocus="">
 			<label class="sr-only">Password</label>
