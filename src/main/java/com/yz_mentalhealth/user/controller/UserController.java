@@ -1,15 +1,14 @@
 package com.yz_mentalhealth.user.controller;
 
-import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
-@RestController
+@Controller
 public class UserController {
 
     @RequestMapping("/hello")
