@@ -13,7 +13,7 @@
 	</head>
 
 	<body class="text-center">
-		<form class="form-signin" action="dashboard.html" th:action="@{/user/isLogin}" method="post">
+		<form class="form-signin" action="dashboard.html" th:action="@{/login/isLogin}" method="post">
 			<img class="mb-4" src="asserts/img/xiongmaoren.jpg" th:src="@{asserts/img/xiongmaoren.jpg}" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
 			<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>

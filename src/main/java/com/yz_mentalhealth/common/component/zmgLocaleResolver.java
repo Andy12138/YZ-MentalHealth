@@ -1,4 +1,4 @@
-package com.yz_mentalhealth.component;
+package com.yz_mentalhealth.common.component;
 
 
 import org.springframework.util.StringUtils;

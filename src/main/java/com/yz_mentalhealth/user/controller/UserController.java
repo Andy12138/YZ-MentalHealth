@@ -1,32 +1,30 @@
 package com.yz_mentalhealth.user.controller;
 
+import com.yz_mentalhealth.user.entity.User;
+import com.yz_mentalhealth.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpSession;
-import java.util.Map;
+import java.util.Collection;
 
 @Controller
 public class UserController {
 
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello world";
-    }
+    @Autowired
+    private UserService userService;
 
-    @PostMapping("/user/isLogin")
-    public String isLogin(@RequestParam("username") String username,
-                          @RequestParam("password") String password,
-                          Map<String,Object> map, HttpSession session){
-        if("admin".equals(username) &&"123456".equals(password)){
-            session.setAttribute("loginUser",username);
-            return "redirect:/main.html";
-        }else{
-            map.put("msg","用户名密码错误");
-            return "login";
-        }
+    //获取用户列表
+    @GetMapping("/userList")
+    public String list(Model model){
+        Collection<User> userList = userService.getAll();
+        //放在请求域中
+        model.addAttribute("userList",userList);
+
+        return "/user/list";
 
     }
+
+
 }
