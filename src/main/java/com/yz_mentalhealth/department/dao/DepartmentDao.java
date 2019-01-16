@@ -1,4 +1,4 @@
-package com.yz_mentalhealth.user.dao;
+package com.yz_mentalhealth.department.dao;
 
 
 import com.yz_mentalhealth.user.entity.Department;
