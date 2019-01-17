@@ -1,7 +1,7 @@
 package com.yz_mentalhealth.department.dao;
 
 
-import com.yz_mentalhealth.user.entity.Department;
+import com.yz_mentalhealth.department.entity.Department;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;

@@ -2,7 +2,7 @@ package com.yz_mentalhealth.department.service.impl;
 
 import com.yz_mentalhealth.department.dao.DepartmentDao;
 import com.yz_mentalhealth.department.service.DepartmentService;
-import com.yz_mentalhealth.user.entity.Department;
+import com.yz_mentalhealth.department.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

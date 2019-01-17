@@ -1,5 +1,7 @@
 package com.yz_mentalhealth.user.entity;
 
+import com.yz_mentalhealth.department.entity.Department;
+
 import java.util.Date;
 
 public class User {

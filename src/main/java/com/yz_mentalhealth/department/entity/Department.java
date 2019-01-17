@@ -1,4 +1,4 @@
-package com.yz_mentalhealth.user.entity;
+package com.yz_mentalhealth.department.entity;
 
 public class Department {
 

@@ -1,7 +1,7 @@
 package com.yz_mentalhealth.user.controller;
 
 import com.yz_mentalhealth.department.service.DepartmentService;
-import com.yz_mentalhealth.user.entity.Department;
+import com.yz_mentalhealth.department.entity.Department;
 import com.yz_mentalhealth.user.entity.User;
 import com.yz_mentalhealth.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

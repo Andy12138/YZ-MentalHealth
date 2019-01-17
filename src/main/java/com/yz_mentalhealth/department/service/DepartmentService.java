@@ -1,6 +1,6 @@
 package com.yz_mentalhealth.department.service;
 
-import com.yz_mentalhealth.user.entity.Department;
+import com.yz_mentalhealth.department.entity.Department;
 
 import java.util.Collection;
 

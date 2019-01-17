@@ -1,7 +1,7 @@
 package com.yz_mentalhealth.user.dao;
 
 import com.yz_mentalhealth.department.dao.DepartmentDao;
-import com.yz_mentalhealth.user.entity.Department;
+import com.yz_mentalhealth.department.entity.Department;
 import com.yz_mentalhealth.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
