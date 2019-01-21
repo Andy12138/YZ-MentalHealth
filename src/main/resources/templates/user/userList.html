@@ -76,11 +76,14 @@
 									<td th:text="${#dates.format(user.birth,'yyyy-MM-dd HH:mm')}"></td>
 									<td>
 										<a class="btn btn-sm btn-primary" th:href="@{/user/}+${user.id}">修改</a>
-										<button class="btn btn-sm btn-danger">删除</button>
+										<button th:attr="deleteFormAction=@{/user/}+${user.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
 									</td>
 								</tr>
 							</tbody>
 						</table>
+						<form id="deleteForm" method="post">
+							<input type="hidden" name="_method" value="delete">
+						</form>
 					</div>
 				</main>
 			</div>
@@ -96,13 +99,10 @@
 		<!-- Icons -->
 		<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
 		<script>
-			feather.replace()
+			$(".deleteBtn").click(function () {
+				$("#deleteForm").attr("action",$(this).attr("deleteFormAction")).submit();
+			})
 		</script>
-
-		<script>
-
-		</script>
-
 	</body>
 
 </html>
