@@ -6,29 +6,58 @@ import java.util.Date;
 
 public class User {
 
-	private Integer id;
-    private String lastName;
-
+	private String id;
+    private String username;
+    private String usercode;
+    private String password;
+    private String sex;
     private String email;
     //1 male, 0 female
-    private Integer gender;
     private Department department;
-    private Date birth;
+    private Date birthday;
+    private String xgr;
+    private Date xgsj;
+    private String cjr;
+    private Date cjsj;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsercode() {
+        return usercode;
+    }
+
+    public void setUsercode(String usercode) {
+        this.usercode = usercode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getEmail() {
@@ -39,14 +68,6 @@ public class User {
         this.email = email;
     }
 
-    public Integer getGender() {
-        return gender;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
-
     public Department getDepartment() {
         return department;
     }
@@ -55,38 +76,61 @@ public class User {
         this.department = department;
     }
 
-    public Date getBirth() {
-        return birth;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-    public User(Integer id, String lastName, String email, Integer gender,
-                    Department department) {
-        super();
-        this.id = id;
-        this.lastName = lastName;
-        this.email = email;
-        this.gender = gender;
-        this.department = department;
-        this.birth = new Date();
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public User() {
+    public String getXgr() {
+        return xgr;
+    }
+
+    public void setXgr(String xgr) {
+        this.xgr = xgr;
+    }
+
+    public Date getXgsj() {
+        return xgsj;
+    }
+
+    public void setXgsj(Date xgsj) {
+        this.xgsj = xgsj;
+    }
+
+    public String getCjr() {
+        return cjr;
+    }
+
+    public void setCjr(String cjr) {
+        this.cjr = cjr;
+    }
+
+    public Date getCjsj() {
+        return cjsj;
+    }
+
+    public void setCjsj(Date cjsj) {
+        this.cjsj = cjsj;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", usercode='" + usercode + '\'' +
+                ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
                 ", email='" + email + '\'' +
-                ", gender=" + gender +
                 ", department=" + department +
-                ", birth=" + birth +
+                ", birthday=" + birthday +
+                ", xgr='" + xgr + '\'' +
+                ", xgsj=" + xgsj +
+                ", cjr='" + cjr + '\'' +
+                ", cjsj=" + cjsj +
                 '}';
     }
-	
-	
 }
