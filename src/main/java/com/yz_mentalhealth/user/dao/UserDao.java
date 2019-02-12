@@ -1,6 +1,6 @@
 package com.yz_mentalhealth.user.dao;
 
-import com.yz_mentalhealth.department.dao.DepartmentDao;
+//import com.yz_mentalhealth.department.dao.DepartmentDao;
 import com.yz_mentalhealth.department.entity.Department;
 import com.yz_mentalhealth.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ public class UserDao {
 
 	private static Map<Integer, User> user = null;
 	
-	@Autowired
-	private DepartmentDao departmentDao;
+	//@Autowired
+	//private DepartmentDao departmentDao;
 	
 	static{
 		user = new HashMap<Integer, User>();
