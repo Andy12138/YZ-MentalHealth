@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="1800 seconds" debug="true">
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--显示日志-->
+    <logger name="com.yz_mentalhealth"  level="DEBUG" />
+</configuration>

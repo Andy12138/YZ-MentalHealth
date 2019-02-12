@@ -27,5 +27,6 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
 mybatis:
-  #config-location: classpath:mybatis/mybatis-config.xml #指定全局配置文件的位置
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml #指定全局配置文件的位置
+  mapper-locations: classpath:mybatis/mapper/*/*Mapper.xml
+
