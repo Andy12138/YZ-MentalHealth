@@ -1,6 +1,6 @@
-package com.yz_mentalhealth.user.entity;
+package com.yz_mentalhealth.entity.user;
 
-import com.yz_mentalhealth.department.entity.Department;
+import com.yz_mentalhealth.entity.department.Department;
 
 import java.util.Date;
 

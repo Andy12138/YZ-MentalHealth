@@ -1,12 +1,10 @@
-package com.yz_mentalhealth.login.controller;
+package com.yz_mentalhealth.controller.login;
 
-import com.yz_mentalhealth.login.service.LoginService;
-import com.yz_mentalhealth.user.entity.User;
+import com.yz_mentalhealth.service.login.LoginService;
+import com.yz_mentalhealth.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;

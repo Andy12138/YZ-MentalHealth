@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--<mapper namespace="com.yz_mentalhealth.login.dao.LoginMapper">-->
-<mapper namespace="com.yz_mentalhealth.department.dao.DepartmentMapper">
+<mapper namespace="com.yz_mentalhealth.mapper.department.DepartmentMapper">
 
     <select id="getDepartments"
-            parameterType="com.yz_mentalhealth.department.entity.Department"
-            resultType="com.yz_mentalhealth.department.entity.Department">
+            parameterType="com.yz_mentalhealth.entity.department.Department"
+            resultType="com.yz_mentalhealth.entity.department.Department">
         SELECT
           ID,
           DEPARTMENTNAME,
@@ -14,6 +14,21 @@
           XGR,
           XGSJ
         FROM DEPARTMENT_INFO
+    </select>
+
+    <select id="getDepartment" parameterType="com.yz_mentalhealth.entity.department.Department"
+            resultType="com.yz_mentalhealth.entity.department.Department">
+        SELECT
+            ID,
+            DEPARTMENTNAME,
+            CJR,
+            CJSJ,
+            XGR,
+            XGSJ
+        FROM
+            DEPARTMENT_INFO
+        WHERE
+            ID = #{id}
     </select>
 
 </mapper>

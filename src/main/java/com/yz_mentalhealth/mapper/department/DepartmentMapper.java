@@ -1,6 +1,6 @@
-package com.yz_mentalhealth.department.dao;
+package com.yz_mentalhealth.mapper.department;
 
-import com.yz_mentalhealth.department.entity.Department;
+import com.yz_mentalhealth.entity.department.Department;
 
 import java.util.List;
 

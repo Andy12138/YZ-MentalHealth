@@ -1,4 +1,4 @@
-package com.yz_mentalhealth.department.entity;
+package com.yz_mentalhealth.entity.department;
 
 import java.util.Date;
 

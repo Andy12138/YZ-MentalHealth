@@ -1,6 +1,6 @@
-package com.yz_mentalhealth.login.service;
+package com.yz_mentalhealth.service.login;
 
-import com.yz_mentalhealth.user.entity.User;
+import com.yz_mentalhealth.entity.user.User;
 
 public interface LoginService {
     /**

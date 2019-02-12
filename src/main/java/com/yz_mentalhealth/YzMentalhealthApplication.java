@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(value = "com.yz_mentalhealth.*.dao")
+@MapperScan(value = "com.yz_mentalhealth.mapper.*")
 public class YzMentalhealthApplication {
 
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package com.yz_mentalhealth.login.service.impl;
+package com.yz_mentalhealth.service.login.impl;
 
 import com.yz_mentalhealth.common.component.BaseServiceMybatisImpl;
-import com.yz_mentalhealth.login.dao.LoginMapper;
-import com.yz_mentalhealth.login.service.LoginService;
-import com.yz_mentalhealth.user.entity.User;
+import com.yz_mentalhealth.mapper.login.LoginMapper;
+import com.yz_mentalhealth.service.login.LoginService;
+import com.yz_mentalhealth.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
