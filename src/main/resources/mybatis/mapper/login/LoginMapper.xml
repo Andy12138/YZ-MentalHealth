@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--<mapper namespace="com.yz_mentalhealth.login.dao.LoginMapper">-->
-<mapper namespace="com.yz_mentalhealth.mapper.login.LoginMapper">
 
-    <select id="isLogin" parameterType="com.yz_mentalhealth.entity.user.User" resultType="int">
-        SELECT count(1) FROM user_info WHERE usercode=#{usercode} and password=#{password}
+<mapper namespace="com.yz_mentalhealth.mapper.login.LoginMapper">
+    <resultMap id="UserResult" type="com.yz_mentalhealth.entity.user.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="usercode" column="usercode" />
+        <result property="password" column="password" />
+        <result property="sex" column="sex" />
+        <result property="email" column="email" />
+        <result property="birthday" column="birthday" />
+        <result property="cjr" column="cjr" />
+        <result property="cjsj" column="cjsj" />
+        <result property="xgr" column="xgr" />
+        <result property="xgsj" column="xgsj" />
+        <association property="department" column="department"  resultMap="DepartmentMap" />
+    </resultMap>
+    <resultMap id="DepartmentMap" type="com.yz_mentalhealth.entity.department.Department" >
+        <id property="id" column="department_id" />
+        <result property="departmentName" column="departmentname" />
+    </resultMap>
+
+    <!--<select id="selectDepartment" parameterType="String" resultType="com.yz_mentalhealth.entity.department.Department">-->
+        <!--select * from department_info where id = #{id}-->
+    <!--</select>-->
+
+    <select id="isLogin" parameterType="com.yz_mentalhealth.entity.user.User" resultMap="UserResult">
+        SELECT
+        a.id,a.usercode,a.username,a.password,a.sex,a.email,a.department_id,b.departmentname,a.birthday,a.cjr,a.cjsj,a.xgr,a.xgsj
+        from user_info a left join department_info b on a.DEPARTMENT_ID=b.ID
+        WHERE a.usercode=#{usercode} and a.password=#{password}
     </select>
 
 </mapper>

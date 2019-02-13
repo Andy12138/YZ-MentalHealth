@@ -7,7 +7,7 @@
 <body>
     <!--公共头部-->
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" style="background:#28a745 !important" th:fragment="commonHeader">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://getbootstrap.com/docs/4.0/examples/dashboard/#">[[${session.loginUser}]]</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://getbootstrap.com/docs/4.0/examples/dashboard/#">[[${session.loginUser.username}]]</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="搜索" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">

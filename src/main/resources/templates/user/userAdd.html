@@ -63,7 +63,7 @@
                         <input type="hidden" name="id" th:if="${user!=null}" th:value="${user.id}" >
                         <div class="form-group">
                             <label>姓名</label>
-                            <input name="lastName" type="text" class="form-control" th:value="${user!=null}?${user.lastName}" placeholder="杨铁柱">
+                            <input name="username" type="text" class="form-control" th:value="${user!=null}?${user.username}" placeholder="杨铁柱">
                         </div>
                         <div class="form-group">
                             <label>邮箱</label>
@@ -72,11 +72,11 @@
                         <div class="form-group">
                             <label>性别</label><br/>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="1" th:checked="${user!=null}?${user.gender}==1" >
+                                <input class="form-check-input" type="radio" name="sex" value="1" th:checked="${user!=null}?${user.sex}==1" >
                                 <label class="form-check-label">男</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="0" th:checked="${user!=null}?${user.gender}==0">
+                                <input class="form-check-input" type="radio" name="sex" value="0" th:checked="${user!=null}?${user.sex}==0">
                                 <label class="form-check-label">女</label>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group">
                             <label>生日</label>
-                            <input name="birth" type="text" class="form-control" placeholder="1994-09-08" th:value="${user!=null}?${#dates.format(user.birth,'yyyy-MM-dd')}" >
+                            <input name="birthday" type="text" class="form-control" placeholder="1994-09-08" th:value="${user!=null}?${#dates.format(user.birthday,'yyyy-MM-dd')}" >
                         </div>
                         <button type="submit" class="btn btn-primary" th:text="${user!=null}?'修改':'新增'" >添加</button>
                     </form>

@@ -4,21 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yz_mentalhealth.mapper.user.UserMapper">
     <resultMap id="UserResult" type="com.yz_mentalhealth.entity.user.User">
-        <association property="department" column="department" select="selectDepartment" javaType="com.yz_mentalhealth.entity.department.Department" />
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="usercode" column="usercode" />
+        <result property="password" column="password" />
+        <result property="sex" column="sex" />
+        <result property="email" column="email" />
+        <result property="birthday" column="birthday" />
+        <result property="cjr" column="cjr" />
+        <result property="cjsj" column="cjsj" />
+        <result property="xgr" column="xgr" />
+        <result property="xgsj" column="xgsj" />
+        <association property="department" column="department"  resultMap="DepartmentMap" />
+    </resultMap>
+    <resultMap id="DepartmentMap" type="com.yz_mentalhealth.entity.department.Department" >
+        <id property="id" column="department_id" />
+        <result property="departmentName" column="departmentname" />
     </resultMap>
 
-    <select id="selectDepartment" parameterType="String" resultType="com.yz_mentalhealth.entity.department.Department">
-        select * from department_info where id = #{id}
-    </select>
+    <!--<select id="selectDepartment" parameterType="String" resultType="com.yz_mentalhealth.entity.department.Department">-->
+        <!--select * from department_info where id = #{id}-->
+    <!--</select>-->
 
-    <insert id="addUser" parameterMap="UserResult">
+    <insert id="addUser" parameterType="com.yz_mentalhealth.entity.user.User">
         insert into user_info(id,usercode,username,password,sex,email,department_id,birthday,cry,crsj,xgr,xgsj)
         values (
           #{id},#{usercode},#{username},#{password},#{sex},#{email},#{department.id},#{cry},now(),#{xgr},now()
           )
     </insert>
 
-    <update id="updateUser" parameterMap="UserResult">
+    <update id="updateUser" parameterType="com.yz_mentalhealth.entity.user.User">
         update user_info
           set
             usercode=#{usercode},
@@ -33,15 +48,20 @@
 
     </update>
 
-    <select id="getUserList" parameterMap="UserResult" resultMap="UserResult">
-        select * from user_info
+    <select id="getUserList" parameterType="com.yz_mentalhealth.entity.user.User" resultMap="UserResult">
+        SELECT
+        a.id,a.usercode,a.username,a.password,a.sex,a.email,a.department_id,b.departmentname,a.birthday,a.cjr,a.cjsj,a.xgr,a.xgsj
+        from user_info a left join department_info b on a.DEPARTMENT_ID=b.ID
     </select>
 
-    <select id="getUser" parameterMap="UserResult" resultMap="UserResult">
-        select * from user_info where id = {id}
+    <select id="getUser" parameterType="com.yz_mentalhealth.entity.user.User" resultMap="UserResult">
+        SELECT
+        a.id,a.usercode,a.username,a.password,a.sex,a.email,a.department_id,b.departmentname,a.birthday,a.cjr,a.cjsj,a.xgr,a.xgsj
+        from user_info a left join department_info b on a.DEPARTMENT_ID=b.ID
+        where a.id = #{id}
     </select>
 
-    <delete id="deleteUser" parameterMap="UserResult">
+    <delete id="deleteUser" parameterType="com.yz_mentalhealth.entity.user.User">
         delete from user_info where id = #{id}
     </delete>
 </mapper>

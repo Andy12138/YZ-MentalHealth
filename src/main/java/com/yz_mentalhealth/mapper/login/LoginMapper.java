@@ -10,5 +10,5 @@ public interface LoginMapper {
      * @param user
      * @return
      */
-    int isLogin(User user);
+    User isLogin(User user);
 }

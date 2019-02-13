@@ -69,11 +69,11 @@
 							<tbody>
 								<tr th:each="user:${userList}">
 									<td th:text="${user.id}"></td>
-									<td th:text="${user.lastName}"></td>
-									<td>[[${user.gender}==0?'女':'男']]</td>
+									<td th:text="${user.username}"></td>
+									<td>[[${user.sex}==0?'女':'男']]</td>
 									<td th:text="${user.email}"></td>
 									<td th:text="${user.department.departmentName}"></td>
-									<td th:text="${#dates.format(user.birth,'yyyy-MM-dd HH:mm')}"></td>
+									<td th:text="${#dates.format(user.birthday,'yyyy-MM-dd HH:mm')}"></td>
 									<td>
 										<a class="btn btn-sm btn-primary" th:href="@{/user/}+${user.id}">修改</a>
 										<button th:attr="deleteFormAction=@{/user/}+${user.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>

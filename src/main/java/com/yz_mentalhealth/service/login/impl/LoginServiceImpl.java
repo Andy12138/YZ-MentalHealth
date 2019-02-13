@@ -7,6 +7,10 @@ import com.yz_mentalhealth.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Transactional
 @Service
@@ -17,10 +21,12 @@ public class LoginServiceImpl extends BaseServiceMybatisImpl implements LoginSer
 
     @Override
     public boolean isLogin(User user) {
-        int loginFlag = loginMapper.isLogin(user);
+        User loginUser = loginMapper.isLogin(user);
         //int loginFlag = this.getSqlSessionTemplate().selectOne("LoginMapper.isLogin",user);
 
-        if (loginFlag>0) {
+        if (null!=loginUser) {
+            HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+            request.getSession().setAttribute("loginUser",loginUser);
             return true;
         }
         return false;

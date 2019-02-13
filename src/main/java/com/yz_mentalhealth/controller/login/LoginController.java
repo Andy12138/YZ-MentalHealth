@@ -17,15 +17,15 @@ public class LoginController {
 
     @PostMapping("/login/isLogin")
     public String isLogin(User user,
-                          Map<String,Object> map,
-                          HttpSession session){
+                          Map<String,Object> map){
         if (loginService.isLogin(user)) {
-            session.setAttribute("loginUser", user);
             return "redirect:/main.html";
         } else {
             map.put("msg","用户名密码错误");
             return "login";
         }
+
+
     }
 
 //    @PostMapping("/login/isLogin")
