@@ -32,7 +32,7 @@ public class YzMentalhealthApplicationTests {
 
     @Test
     public void redisTest(){
-        redisUtil.set("zmg1","李芬琪1",10000);
+        redisUtil.set("zmg","钟名桂",10000);
         System.out.println(redisUtil.get("zmg"));
     }
 

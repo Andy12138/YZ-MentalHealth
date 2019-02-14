@@ -10,6 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 这是redis操作的工具类
+ * zhongminggui
+ * 2018.12.07
+ */
 @Component
 public class RedisUtil {
 
