@@ -1,5 +1,6 @@
 package com.yz_mentalhealth;
 
+import com.yz_mentalhealth.common.component.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class YzMentalhealthApplicationTests {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     @Test
     public void contextLoads() throws SQLException {
         System.out.println("钟名桂："+dataSource.getClass());
@@ -24,6 +28,12 @@ public class YzMentalhealthApplicationTests {
         Connection connection = dataSource.getConnection();
         System.out.println("钟名桂连接池："+connection);
         connection.close();
+    }
+
+    @Test
+    public void redisTest(){
+        redisUtil.set("zmg1","李芬琪1",10000);
+        System.out.println(redisUtil.get("zmg"));
     }
 
 }
