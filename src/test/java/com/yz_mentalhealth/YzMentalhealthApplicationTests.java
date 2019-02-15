@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,6 +28,7 @@ public class YzMentalhealthApplicationTests {
 
         Connection connection = dataSource.getConnection();
         System.out.println("钟名桂连接池："+connection);
+        System.out.println("哈哈"+UUID.randomUUID().toString());
         connection.close();
     }
 

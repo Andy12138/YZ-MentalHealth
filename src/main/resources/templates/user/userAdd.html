@@ -1,57 +1,25 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<body>
+<!-- 模态框 -->
+<div class="modal fade" id="userAddModal" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-		<title>Dashboard Template for Bootstrap</title>
-		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.css}" rel="stylesheet">
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">用户基本信息</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
-		<style type="text/css">
-			/* Chart.js */
-
-			@-webkit-keyframes chartjs-render-animation {
-				from {
-					opacity: 0.99
-				}
-				to {
-					opacity: 1
-				}
-			}
-
-			@keyframes chartjs-render-animation {
-				from {
-					opacity: 0.99
-				}
-				to {
-					opacity: 1
-				}
-			}
-
-			.chartjs-render-monitor {
-				-webkit-animation: chartjs-render-animation 0.001s;
-				animation: chartjs-render-animation 0.001s;
-			}
-		</style>
-	</head>
-
-	<body>
-		<!--引入公共头部commonHeader-->
-		<div th:replace="common/commonComponent::commonHeader"></div>
-
-		<div class="container-fluid">
-			<div class="row">
-				<!--引入公共侧边栏菜单-->
-				<div th:replace="common/commonComponent::#commonMenu(url='user')"></div>
-
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <div style="padding: 0 20px">
                     <form th:action="@{/user}"  method="post">
                         <!--发送put请求修改员工数据-->
                         <!--
@@ -63,14 +31,14 @@
                         <input type="hidden" name="id" th:if="${user!=null}" th:value="${user.id}" >
                         <div class="form-group">
                             <label>姓名</label>
-                            <input name="username" type="text" class="form-control" th:value="${user!=null}?${user.username}" placeholder="杨铁柱">
+                            <input name="username" type="text" class="form-control1" th:value="${user!=null}?${user.username}" placeholder="小桂桂" >
                         </div>
                         <div class="form-group">
                             <label>邮箱</label>
-                            <input name="email" type="email" class="form-control" th:value="${user!=null}?${user.email}" placeholder="yangtiezhu@zmg.com" >
+                            <input name="email" type="email" class="form-control1" th:value="${user!=null}?${user.email}" placeholder="yangtiezhu@zmg.com" >
                         </div>
                         <div class="form-group">
-                            <label>性别</label><br/>
+                            <label>性别</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="sex" value="1" th:checked="${user!=null}?${user.sex}==1" >
                                 <label class="form-check-label">男</label>
@@ -83,34 +51,26 @@
                         <div class="form-group">
                             <label>部门</label>
                             <!--提交的是部门的id-->
-                            <select class="form-control" name="department.id">
+                            <select class="form-control1" name="department.id">
                                 <option th:value="${depart.id}" th:selected="${user!=null}?${depart.id == user.department.id}" th:each="depart:${departList}" th:text="${depart.departmentName}"></option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>生日</label>
-                            <input name="birthday" type="text" class="form-control" placeholder="1994-09-08" th:value="${user!=null}?${#dates.format(user.birthday,'yyyy-MM-dd')}" >
+                            <input name="birthday" type="text" class="form-control1" placeholder="1994-09-08" th:value="${user!=null}?${#dates.format(user.birthday,'yyyy-MM-dd')}" >
                         </div>
-                        <button type="submit" class="btn btn-primary" th:text="${user!=null}?'修改':'新增'" >添加</button>
                     </form>
-				</main>
-			</div>
-		</div>
+                </div>
+            </div>
 
-		<!-- Bootstrap core JavaScript
-    ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1-1/jquery.js}"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/webjars/popper.js/1.14.6/popper.js}"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.js}"></script>
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">保存</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
 
-		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
-
-		<script>
-
-		</script>
-
-	</body>
-
+        </div>
+    </div>
+</div>
+</body>
 </html>

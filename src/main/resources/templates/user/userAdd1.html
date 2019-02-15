@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Dashboard Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+		<style type="text/css">
+			/* Chart.js */
+
+			@-webkit-keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+
+			@keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+
+			.chartjs-render-monitor {
+				-webkit-animation: chartjs-render-animation 0.001s;
+				animation: chartjs-render-animation 0.001s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--引入公共头部commonHeader-->
+		<div th:replace="common/commonComponent::commonHeader"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<!--引入公共侧边栏菜单-->
+				<div th:replace="common/commonComponent::#commonMenu(url='user')"></div>
+
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <form th:action="@{/user}"  method="post">
+                        <!--发送put请求修改员工数据-->
+                        <!--
+                        1、SpringMVC中配置HiddenHttpMethodFilter;（SpringBoot自动配置好的）
+                        2、页面创建一个post表单
+                        3、创建一个input项，name="_method";值就是我们指定的请求方式
+                        -->
+                        <input type="hidden" name="_method" value="put" th:if="${user!=null}" >
+                        <input type="hidden" name="id" th:if="${user!=null}" th:value="${user.id}" >
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input name="username" type="text" class="form-control" th:value="${user!=null}?${user.username}" placeholder="杨铁柱">
+                        </div>
+                        <div class="form-group">
+                            <label>邮箱</label>
+                            <input name="email" type="email" class="form-control" th:value="${user!=null}?${user.email}" placeholder="yangtiezhu@zmg.com" >
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label><br/>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" value="1" th:checked="${user!=null}?${user.sex}==1" >
+                                <label class="form-check-label">男</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" value="0" th:checked="${user!=null}?${user.sex}==0">
+                                <label class="form-check-label">女</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>部门</label>
+                            <!--提交的是部门的id-->
+                            <select class="form-control" name="department.id">
+                                <option th:value="${depart.id}" th:selected="${user!=null}?${depart.id == user.department.id}" th:each="depart:${departList}" th:text="${depart.departmentName}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>生日</label>
+                            <input name="birthday" type="text" class="form-control" placeholder="1994-09-08" th:value="${user!=null}?${#dates.format(user.birthday,'yyyy-MM-dd')}" >
+                        </div>
+                        <button type="submit" class="btn btn-primary" th:text="${user!=null}?'修改':'新增'" >添加</button>
+                    </form>
+				</main>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1-1/jquery.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/webjars/popper.js/1.14.6/popper.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.js}"></script>
+
+		<!-- Icons -->
+		<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+
+		<script>
+
+		</script>
+
+	</body>
+
+</html>

@@ -27,9 +27,9 @@
     <!--</select>-->
 
     <insert id="addUser" parameterType="com.yz_mentalhealth.entity.user.User">
-        insert into user_info(id,usercode,username,password,sex,email,department_id,birthday,cry,crsj,xgr,xgsj)
+        insert into user_info(id,usercode,username,password,sex,email,department_id,birthday,cry,crsj)
         values (
-          #{id},#{usercode},#{username},#{password},#{sex},#{email},#{department.id},#{cry},now(),#{xgr},now()
+          #{id},#{usercode},#{username},#{password},#{sex},#{email},#{department.id},#{cry},now()
           )
     </insert>
 
